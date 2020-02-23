@@ -51,6 +51,10 @@ public class Router extends Thread {
                 }
                 in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
                 out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
+                // read msg from client
+                String readLine = in.readLine();
+                System.out.println( readLine );
+                out.write( "ROUTER: message accepted" );
                 ////////////////////////
                 System.out.println("ROUTER: port " + clientSocket.getLocalPort());
                 clientId = ( clientSocket.getLocalPort() == 5000
@@ -62,10 +66,6 @@ public class Router extends Thread {
                 System.out.println( "ROUTER: clientId " + clientId );
                 System.out.println( "ROUTER: check sum " + checkSum );
                 ////////////////////////
-                // сообщение от клиента
-                String readLine = in.readLine();
-                System.out.println( readLine );
-                out.write( "ROUTER: message accepted" );
                 out.flush();
             } catch ( IOException ex ) {
                 printException( ex );

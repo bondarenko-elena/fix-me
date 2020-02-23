@@ -2,12 +2,14 @@ import com.sun.istack.internal.NotNull;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Map;
 
 public class Market {
 
     private static BufferedReader br;
     private static BufferedReader in;
     private static BufferedWriter out;
+    private final Map<String, Integer> instruments = null;
 
     public static void main (String[] args) {
         try (Socket clientSocket = new Socket("localhost", 5001)) {

@@ -14,9 +14,14 @@ public class Broker {
             br = new BufferedReader( new InputStreamReader( System.in ) );
             in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
             out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
-            System.out.println("BROKER: enter string");
-            // msg from client in console
+            System.out.println("BROKER: available options: BUY, SELL");
+            System.out.println("BROKER chose option:");
             String readLine = br.readLine();
+            while (!(readLine.equalsIgnoreCase( "buy" ) || readLine.equalsIgnoreCase( "sell" ))) {
+                // msg from client in console
+                System.out.println("BROKER: available options: BUY, SELL");
+                readLine = br.readLine();
+            }
             out.write(readLine + "\n");
             System.out.println("BROKER: send message to server");
             out.flush();
