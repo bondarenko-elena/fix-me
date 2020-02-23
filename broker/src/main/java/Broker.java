@@ -15,12 +15,12 @@ public class Broker {
             in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
             out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
             System.out.println("BROKER: enter string");
-            // сообщение от клиента в консоли
+            // msg from client in console
             String readLine = br.readLine();
             out.write(readLine + "\n");
             System.out.println("BROKER: send message to server");
             out.flush();
-            // ответ от сервера
+            // msg from server
             readLine = in.readLine();
             System.out.println(readLine);
         }

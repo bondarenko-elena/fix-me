@@ -1,46 +1,36 @@
 import com.sun.istack.internal.NotNull;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class Market {
 
-    public static void main(String[] args) {
-        runMarket();
-    }
+    private static BufferedReader br;
+    private static BufferedReader in;
+    private static BufferedWriter out;
 
-    public static void runMarket() {
-        try ( Socket socket = new Socket( "localhost", 5001 ) ) {
-            BufferedReader echoes = new BufferedReader( new InputStreamReader( socket.getInputStream() ) );
-            PrintWriter pw = new PrintWriter( socket.getOutputStream(), true );
-
-            Scanner scanner = new Scanner( System.in );
-            String str;
-            String response;
-
-            do {
-                System.out.println( "Market: enter string to be echoed: " );
-                str = scanner.nextLine();
-
-                pw.println( str );
-                if ( !str.equals( "exit" ) ) {
-                    response = echoes.readLine();
-                    System.out.println( response );
-                }
-            } while ( !str.equals( "exit" ) );
-
-        } catch ( IOException ex ) {
+    public static void main (String[] args) {
+        try (Socket clientSocket = new Socket("localhost", 5001)) {
+            br = new BufferedReader( new InputStreamReader( System.in ) );
+            in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
+            out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
+            System.out.println("MARKET: enter string");
+            // msg from client in console
+            String readLine = br.readLine();
+            out.write(readLine + "\n");
+            System.out.println("MARKET: send message to server");
+            out.flush();
+            // msg from server
+            readLine = in.readLine();
+            System.out.println(readLine);
+        }
+        catch ( IOException ex ) {
             printException( ex );
         }
     }
 
-    protected static void printException( @NotNull Exception ex ) {
-        System.out.println( "Market Client exception" );
+    private static void printException( @NotNull Exception ex ) {
+        System.out.println( "MARKET: client exception" );
         ex.printStackTrace();
     }
-
 }
