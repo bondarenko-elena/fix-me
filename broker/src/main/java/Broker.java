@@ -1,42 +1,36 @@
-import org.jetbrains.annotations.NotNull;
+import com.sun.istack.internal.NotNull;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
-import java.util.Scanner;
 
-//todo refactor
 public class Broker {
 
-    public static void runBroker() {
-        try ( Socket socket = new Socket( "localhost", 5000 ) ) {
-            BufferedReader br = new BufferedReader( new InputStreamReader( socket.getInputStream() ) );
-            PrintWriter pw = new PrintWriter( socket.getOutputStream(), true );
+    private static BufferedReader br;
+    private static BufferedReader in;
+    private static BufferedWriter out;
 
-            Scanner scanner = new Scanner( System.in );
-            String str;
-            String response;
-
-            do {
-                System.out.println( "Brocker echo: enter string to be echoed:" );
-                str = scanner.nextLine();
-
-                pw.println( str );
-                if ( !str.equals( "exit" ) ) {
-                    response = br.readLine();
-                    System.out.println( response );
-                }
-            } while ( !str.equals( "exit" ) );
-
-        } catch ( IOException ex ) {
+    public static void main (String[] args) {
+        try (Socket clientSocket = new Socket("localhost", 5000)) {
+            br = new BufferedReader( new InputStreamReader( System.in ) );
+            in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
+            out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
+            System.out.println("BROKER: enter string");
+            // сообщение от клиента в консоли
+            String readLine = br.readLine();
+            out.write(readLine + "\n");
+            System.out.println("BROKER: send message to server");
+            out.flush();
+            // ответ от сервера
+            readLine = in.readLine();
+            System.out.println(readLine);
+        }
+        catch ( IOException ex ) {
             printException( ex );
         }
     }
 
     private static void printException( @NotNull Exception ex ) {
-        System.out.println( "\u001b[31m" + "Broker client exception" );
+        System.out.println( "BROKER: client exception" );
         ex.printStackTrace();
     }
 }
