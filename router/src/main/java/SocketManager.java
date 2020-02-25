@@ -13,14 +13,28 @@ import java.time.Instant;
 @Setter
 public class SocketManager extends Thread {
     private Socket socket;
-    private String clientId;
+    private static String clientId;
     private int port;
-    private static String readLine = "";
+    private static BufferedReader inBroker;
+    private static BufferedWriter outBroker;
+    private static BufferedReader inMarket;
+    private static BufferedWriter outMarket;
 
     SocketManager( Socket socket ) {
         this.socket = socket;
-        clientId = ( socket.getLocalPort() == 5000 ? "0" : "1" ) + String.valueOf( Instant.now().toEpochMilli() )
-                                                                         .substring( 8 );
+        this.clientId = ( socket.getLocalPort() == 5000 ? "0" : "1" ) + String.valueOf( Instant.now().toEpochMilli() ).substring( 8 );
+        try {
+            if ( socket.getLocalPort() == 5000 ) {
+                inBroker = new BufferedReader( new InputStreamReader( socket.getInputStream() ) );
+                outBroker = new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) );
+            }
+            if ( socket.getLocalPort() == 5001 ) {
+                inMarket = new BufferedReader( new InputStreamReader( socket.getInputStream() ) );
+                outMarket = new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) );
+            }
+        } catch ( IOException ex ) {
+            Router.printException( ex );
+        }
     }
 
     @Override
@@ -29,12 +43,20 @@ public class SocketManager extends Thread {
     }
 
     private static void portThread( Socket clientSocket ) {
-        try (
-                BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
-                PrintWriter out = new PrintWriter( clientSocket.getOutputStream(), true )
-        ) {
-            readLine = in.readLine();
-            System.out.println( "ROUTER: message accepted: " + readLine + "\n" );
+        try {
+            if ( clientSocket.getLocalPort() == 5000 ) {
+                System.out.println( "ROUTER: Broker is here" );
+                String readLine = inBroker.readLine();
+                System.out.println( "ROUTER: message accepted from Broker: " + readLine);
+                outMarket.write( createFixMessage( clientId + ";" + clientSocket.getLocalPort() + ";" + readLine ) + "\n" );
+                outMarket.flush();
+                System.out.println( "ROUTER: message rerouted to Market: " + readLine);
+            }
+            if ( clientSocket.getLocalPort() == 5001 ) {
+                System.out.println( "ROUTER: Market is here" );
+
+            }
+
         } catch ( IOException ex ) {
             Router.printException( ex );
         }
@@ -61,7 +83,7 @@ public class SocketManager extends Thread {
                 "ID=" + elem[0] + "|" +
                         "PORT=" + elem[1] + "|" +
                         "OPTION=" + elem[2];
-        fixMsg += "CHECKSUM=" + createCheckSum( fixMsg );
+        fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
 //        routingTable.add( fixMsg );
         return fixMsg;
     }

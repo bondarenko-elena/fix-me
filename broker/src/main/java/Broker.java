@@ -12,8 +12,8 @@ public class Broker {
     private static BufferedReader in;
     private static BufferedWriter out;
 
-    public static void main (String[] args) {
-        while (true) {
+    public static void main( String[] args ) {
+        while ( true ) {
             try ( Socket clientSocket = new Socket( "localhost", 5000 ) ) {
                 br = new BufferedReader( new InputStreamReader( System.in ) );
                 in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
@@ -27,7 +27,7 @@ public class Broker {
                     readLine = br.readLine();
                 }
                 System.out.println( "BROKER: send message to server: " + readLine );
-                out.write(readLine + "\n");
+                out.write( readLine + "\n" );
                 out.flush();
                 // msg from server (get FIX msg)
 //                System.out.println( "BROKER: get message from server: " );
@@ -62,7 +62,7 @@ public class Broker {
                         "|Quant=" + elem[2] +
                         "|Market=" + elem[3] +
                         "|Price=" + elem[4] + "|";
-        fixMsg += "CheckSum=" + createCheckSum( fixMsg );
+        fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
         return fixMsg;
     }
 
