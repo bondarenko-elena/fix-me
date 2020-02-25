@@ -65,7 +65,7 @@ public class SocketManager extends Thread {
             else {
 //                System.out.println( "ROUTER: Market is here" );
                 readLine = SocketSingleton.getInstance().getInMarket().readLine();
-                SocketSingleton.getInstance().getOutBroker().write( readLine );
+                SocketSingleton.getInstance().getOutBroker().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
                 System.out.println( "ROUTER: message from market rerouted to broker" );
             }

@@ -18,8 +18,6 @@ public class Market {
                 BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
                 System.out.println( "MARKET: waiting message from server" );
                 String readLine = in.readLine();
-                out.write( readLine + "\n" );
-                out.flush();
                 System.out.println( "MARKET: message accepted: " + readLine );
                 String clientId = readLine.split( "\\|" )[0];
                 String port = readLine.split( "\\|" )[1];
