@@ -9,35 +9,30 @@ import java.util.Map;
 
 public class Market {
 
-    private static BufferedReader br;
-    private static BufferedReader in;
-    private static BufferedWriter out;
-    private static String clientId;
-    private static String option;
     private static final Map<Integer, String> instruments = null;
 
     public static void main( String[] args ) {
         while ( true ) {
             try ( Socket clientSocket = new Socket( "localhost", 5001 ) ) {
-                br = new BufferedReader( new InputStreamReader( System.in ) );
-                in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
-                out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ));
+                BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
+                BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
                 System.out.println( "MARKET: waiting message from server" );
                 String readLine = in.readLine();
                 System.out.println( "MARKET: message accepted: " + readLine );
-                option = readLine.split( "|" )[2];
-                clientId = readLine.split( "|" )[0];
+                String clientId = readLine.split( "|" )[0];
+                String port = readLine.split( "|" )[1];
+                String option = readLine.split( "|" )[2];
                 if ( option.equalsIgnoreCase( "buy" ) ) {
                     readLine = "Rejected";
-                    System.out.println( "MARKET: send message to server: " + readLine + "\n" );
-                    out.write( readLine );
+                    System.out.println( "MARKET: send message to server: " + readLine );
+                    out.write( createFixMessage( clientId + ";" + port + ";" + "none;" + "0;" + "0" ) + "\n" );
                     out.flush();
                 }
                 if ( option.equalsIgnoreCase( "sell" ) ) {
                     readLine = "Executed";
                     instruments.put( 1, "Pliers" );
                     System.out.println( "MARKET: send message to server: " + readLine + "\n" );
-                    out.write( createFixMessage( clientId + ";" + "Pliers;" + "1;" + "150") );
+                    out.write( createFixMessage( clientId + ";" + port + ";" + "Pliers;" + "1;" + "150" ) + "\n" );
                     out.flush();
                 }
             } catch ( IOException ex ) {
@@ -62,11 +57,12 @@ public class Market {
     }
 
     private static String createFixMessage( String msgElem ) {
-        String elem[] = msgElem.split( ";" );
+        String[] elem = msgElem.split( ";" );
         String fixMsg =
                 "ID=" + elem[0] +
-                        "|INSTR=" + elem[1] +
-                        "|QUANT=" + elem[2] +
+                        "|PORT=" + elem[1] +
+                        "|INSTR=" + elem[2] +
+                        "|QUANT=" + elem[3] +
                         "|PRICE=" + elem[4] + "|";
         fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
         return fixMsg;

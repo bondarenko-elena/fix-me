@@ -19,16 +19,20 @@ public class SocketManager extends Thread {
     private static BufferedWriter outBroker;
     private static BufferedReader inMarket;
     private static BufferedWriter outMarket;
+    private static String readLine = "";
 
     SocketManager( Socket socket ) {
         this.socket = socket;
-        this.clientId = ( socket.getLocalPort() == 5000 ? "0" : "1" ) + String.valueOf( Instant.now().toEpochMilli() ).substring( 8 );
+        clientId = ( socket.getLocalPort() == 5000 ? "0" : "1" ) + String.valueOf( Instant.now().toEpochMilli() )
+                                                                         .substring( 8 );
         try {
             if ( socket.getLocalPort() == 5000 ) {
+                System.out.println( "ROUTER: broker connected" );
                 inBroker = new BufferedReader( new InputStreamReader( socket.getInputStream() ) );
                 outBroker = new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) );
             }
             if ( socket.getLocalPort() == 5001 ) {
+                System.out.println( "ROUTER: market connected" );
                 inMarket = new BufferedReader( new InputStreamReader( socket.getInputStream() ) );
                 outMarket = new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) );
             }
@@ -45,16 +49,24 @@ public class SocketManager extends Thread {
     private static void portThread( Socket clientSocket ) {
         try {
             if ( clientSocket.getLocalPort() == 5000 ) {
-                System.out.println( "ROUTER: Broker is here" );
-                String readLine = inBroker.readLine();
-                System.out.println( "ROUTER: message accepted from Broker: " + readLine);
+//                System.out.println( "ROUTER: Broker is here" );
+                ////
+                // send clientId to Broker
+                outBroker.write( clientId + "\n" );
+                outBroker.flush();
+                ////
+                readLine = inBroker.readLine();
+                System.out.println( "ROUTER: message accepted from Broker: " + readLine );
                 outMarket.write( createFixMessage( clientId + ";" + clientSocket.getLocalPort() + ";" + readLine ) + "\n" );
                 outMarket.flush();
-                System.out.println( "ROUTER: message rerouted to Market: " + readLine);
+                System.out.println( "ROUTER: message rerouted to Market: " + readLine );
             }
             if ( clientSocket.getLocalPort() == 5001 ) {
-                System.out.println( "ROUTER: Market is here" );
-
+//                System.out.println( "ROUTER: Market is here" );
+                readLine = inMarket.readLine();
+                outBroker.write( readLine );
+                outBroker.flush();
+                System.out.println( "ROUTER: message from market rerouted to broker" );
             }
 
         } catch ( IOException ex ) {
@@ -78,13 +90,12 @@ public class SocketManager extends Thread {
     }
 
     private static String createFixMessage( @NotNull String msgElem ) {
-        String elem[] = msgElem.split( ";" );
+        String[] elem = msgElem.split( ";" );
         String fixMsg =
-                "ID=" + elem[0] + "|" +
-                        "PORT=" + elem[1] + "|" +
-                        "OPTION=" + elem[2];
+                "ID=" + elem[0] +
+                        "|PORT=" + elem[1] +
+                        "|OPTION=" + elem[2];
         fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
-//        routingTable.add( fixMsg );
         return fixMsg;
     }
 }

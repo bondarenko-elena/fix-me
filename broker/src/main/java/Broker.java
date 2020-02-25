@@ -8,31 +8,31 @@ import java.security.NoSuchAlgorithmException;
 
 public class Broker {
 
-    private static BufferedReader br;
-    private static BufferedReader in;
-    private static BufferedWriter out;
-
     public static void main( String[] args ) {
         while ( true ) {
             try ( Socket clientSocket = new Socket( "localhost", 5000 ) ) {
-                br = new BufferedReader( new InputStreamReader( System.in ) );
-                in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
-                out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
+                BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
+                BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
+                BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
+                // wait for clientId from Router
+                String clientId = in.readLine();
                 System.out.println( "BROKER: available options: BUY, SELL" );
                 System.out.println( "BROKER chose option:" );
                 String readLine = br.readLine();
                 while ( !( readLine.equalsIgnoreCase( "buy" ) || readLine.equalsIgnoreCase( "sell" ) ) ) {
-                    // msg from client typed to console
+                    System.out.println( "BROKER: waiting message in console" );
                     System.out.println( "BROKER: available options: BUY, SELL" );
                     readLine = br.readLine();
                 }
+                int port = clientSocket.getLocalPort();
+                String option = readLine;
                 System.out.println( "BROKER: send message to server: " + readLine );
-                out.write( readLine + "\n" );
+                out.write( createFixMessage( clientId + ";" + port + ";" + option ) + "\n" );
                 out.flush();
-                // msg from server (get FIX msg)
-//                System.out.println( "BROKER: get message from server: " );
-//                readLine = in.readLine();
-//                System.out.println( readLine );
+                System.out.println( "BROKER: waiting for message from server: " );
+                readLine = in.readLine();
+                //todo parse input if needed
+                System.out.println( "BROKER: get message from server: " + readLine );
             } catch ( IOException ex ) {
                 printException( ex );
             }
@@ -54,13 +54,12 @@ public class Broker {
         return returnHash;
     }
 
-    private static String createFixMessage( String msgElem ) {
-        String elem[] = msgElem.split( ";" );
+    private static String createFixMessage( @NotNull String msgElem ) {
+        String[] elem = msgElem.split( ";" );
         String fixMsg =
                 "ID=" + elem[0] +
-                        "|INSTR=" + elem[1] +
-                        "|QUANT=" + elem[2] +
-                        "|PRICE=" + elem[4] + "|";
+                        "|PORT=" + elem[1] +
+                        "|OPTION=" + elem[2];
         fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
         return fixMsg;
     }

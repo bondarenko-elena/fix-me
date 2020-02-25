@@ -14,13 +14,11 @@ public class Router {
         while ( true ) {
             try ( ServerSocket serverSocket = new ServerSocket( brokerPort ) ) {
                 new SocketManager( serverSocket.accept() ).start();
-//                System.out.println( "ROUTER: broker is here" );
             } catch ( IOException ex ) {
                 printException( ex );
             }
             try ( ServerSocket serverSocket = new ServerSocket( marketPort ) ) {
                 new SocketManager( serverSocket.accept() ).start();
-//                System.out.println( "ROUTER: market is here" );
             } catch ( IOException ex ) {
                 printException( ex );
             }
