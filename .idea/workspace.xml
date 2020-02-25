@@ -4,8 +4,6 @@
     <list default="true" id="f525dbb4-4851-47e3-b664-c14f623423b3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/broker/src/main/java/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/main/java/Broker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market/src/main/java/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/market/src/main/java/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/src/main/java/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/router/src/main/java/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/router/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,10 +31,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/src/main/java/SocketManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="243">
               <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -49,20 +47,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/broker/src/main/java/Broker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="64" column="28" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="28" />
+            <state relative-caret-position="359">
+              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
               <folding>
-                <marker date="1582626191016" expanded="true" signature="1506:1628" ph="..." />
+                <marker date="1582628489195" expanded="true" signature="1506:1628" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/market/src/main/java/Market.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="70" column="28" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
+            <state relative-caret-position="189">
+              <caret line="38" column="95" selection-start-line="38" selection-start-column="95" selection-end-line="38" selection-end-column="95" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,8 +84,8 @@
       <find>flus</find>
       <find>out</find>
       <find>out</find>
-      <find>outMarket</find>
       <find>acce</find>
+      <find>outMarket</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,9 +97,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/router/src/main/java/Router.java" />
+        <option value="$PROJECT_DIR$/router/src/main/java/SocketManager.java" />
         <option value="$PROJECT_DIR$/broker/src/main/java/Broker.java" />
         <option value="$PROJECT_DIR$/market/src/main/java/Market.java" />
-        <option value="$PROJECT_DIR$/router/src/main/java/SocketManager.java" />
       </list>
     </option>
   </component>
@@ -462,33 +460,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/router/src/main/java/SocketManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/broker/src/main/java/Broker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="64" column="28" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="28" />
+        <state relative-caret-position="359">
+          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
           <folding>
-            <marker date="1582626191016" expanded="true" signature="1506:1628" ph="..." />
+            <marker date="1582628489195" expanded="true" signature="1506:1628" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/market/src/main/java/Market.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="70" column="28" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
+        <state relative-caret-position="189">
+          <caret line="38" column="95" selection-start-line="38" selection-start-column="95" selection-end-line="38" selection-end-column="95" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/src/main/java/SocketManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1519#1520#0" expanded="true" />
           </folding>
         </state>
       </provider>

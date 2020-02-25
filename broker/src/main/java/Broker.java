@@ -58,10 +58,9 @@ public class Broker {
         String elem[] = msgElem.split( ";" );
         String fixMsg =
                 "ID=" + elem[0] +
-                        "|Instr=" + elem[1] +
-                        "|Quant=" + elem[2] +
-                        "|Market=" + elem[3] +
-                        "|Price=" + elem[4] + "|";
+                        "|INSTR=" + elem[1] +
+                        "|QUANT=" + elem[2] +
+                        "|PRICE=" + elem[4] + "|";
         fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
         return fixMsg;
     }
