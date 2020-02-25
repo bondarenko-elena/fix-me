@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f525dbb4-4851-47e3-b664-c14f623423b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/broker/src/main/java/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/main/java/Broker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/router/src/main/java/SocketSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market/src/main/java/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/market/src/main/java/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/src/main/java/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/router/src/main/java/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market/target/classes/Market.class" beforeDir="false" afterPath="$PROJECT_DIR$/market/target/classes/Market.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/src/main/java/Router2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/target/classes/META-INF/router.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/router/target/classes/META-INF/router.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/target/classes/Router2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/target/classes/SocketManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/router/target/classes/SocketManager.class" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/router/target/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/market/target/" />
-    <ignored path="$PROJECT_DIR$/broker/target/" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,56 +20,6 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/src/main/java/Router.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router/src/main/java/SocketManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="52" column="20" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1761#1762#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/broker/src/main/java/Broker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="8" selection-end-line="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/market/src/main/java/Market.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -76,38 +27,10 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>flu</find>
-      <find>flus</find>
-      <find>out</find>
-      <find>out</find>
-      <find>out.write</find>
-      <find>out.wri</find>
-      <find>in.read</find>
-      <find>in.rea</find>
-      <find>port</find>
-      <find>outMarket</find>
-      <find>string readL</find>
-      <find>out.write(</find>
-      <find>out.write(</find>
-      <find>acce</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/router/src/main/java/Router.java" />
-        <option value="$PROJECT_DIR$/router/src/main/java/SocketManager.java" />
-        <option value="$PROJECT_DIR$/broker/src/main/java/Broker.java" />
-        <option value="$PROJECT_DIR$/market/src/main/java/Market.java" />
-      </list>
-    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -116,12 +39,6 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="width" value="1940" />
@@ -129,104 +46,6 @@
   </component>
   <component name="ProjectId" id="1YCobYxz8rOB4KT6huTrBh0ljZ1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="broker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="broker" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="broker" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="broker" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="market" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="market" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="market" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="market" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fix-me" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fix-me" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -236,25 +55,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/automation-cm-dm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../automation-cm-dm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Router">
+  <component name="RunManager" selected="Application.Market">
     <configuration name="Broker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Broker" />
       <module name="broker" />
@@ -313,52 +120,15 @@
     </task>
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329429" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329429" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39970717" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.329429" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.329429" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.329429" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.3295302" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout>
-  </component>
   <component name="WindowStateProjectService">
     <state x="392" y="87" key="#Project_Structure" timestamp="1582466594512">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="392" y="87" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1582466594512" />
+    <state x="605" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1582658531553">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="605" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1582658531553" />
     <state x="347" y="131" width="698" height="597" key="#xdebugger.evaluate" timestamp="1582468303183">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -367,46 +137,94 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="183" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1582458709812" />
-    <state width="1556" height="209" key="GridCell.Tab.0.bottom" timestamp="1582479936791">
+    <state width="1556" height="315" key="GridCell.Tab.-1.bottom" timestamp="1582661999475">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="209" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582479936791" />
-    <state width="1556" height="209" key="GridCell.Tab.0.center" timestamp="1582479936791">
+    <state width="1556" height="315" key="GridCell.Tab.-1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582661999475" />
+    <state width="1556" height="315" key="GridCell.Tab.-1.center" timestamp="1582661999475">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="209" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1582479936791" />
-    <state width="1556" height="209" key="GridCell.Tab.0.left" timestamp="1582479936791">
+    <state width="1556" height="315" key="GridCell.Tab.-1.center/0.0.1600.860@0.0.1600.860" timestamp="1582661999475" />
+    <state width="1556" height="315" key="GridCell.Tab.-1.left" timestamp="1582661999475">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="209" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1582479936791" />
-    <state width="1556" height="209" key="GridCell.Tab.0.right" timestamp="1582479936791">
+    <state width="1556" height="315" key="GridCell.Tab.-1.left/0.0.1600.860@0.0.1600.860" timestamp="1582661999475" />
+    <state width="1556" height="315" key="GridCell.Tab.-1.right" timestamp="1582661999475">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="209" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1582479936791" />
-    <state width="1556" height="326" key="GridCell.Tab.1.bottom" timestamp="1582477323462">
+    <state width="1556" height="315" key="GridCell.Tab.-1.right/0.0.1600.860@0.0.1600.860" timestamp="1582661999475" />
+    <state width="1556" height="315" key="GridCell.Tab.0.bottom" timestamp="1582663637972">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="326" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582477323462" />
-    <state width="1556" height="326" key="GridCell.Tab.1.center" timestamp="1582477323462">
+    <state width="1556" height="315" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582663637972" />
+    <state width="1556" height="315" key="GridCell.Tab.0.center" timestamp="1582663637972">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="326" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1582477323462" />
-    <state width="1556" height="326" key="GridCell.Tab.1.left" timestamp="1582477323462">
+    <state width="1556" height="315" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1582663637972" />
+    <state width="1556" height="315" key="GridCell.Tab.0.left" timestamp="1582663637972">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="326" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1582477323462" />
-    <state width="1556" height="326" key="GridCell.Tab.1.right" timestamp="1582477323462">
+    <state width="1556" height="315" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1582663637972" />
+    <state width="1556" height="315" key="GridCell.Tab.0.right" timestamp="1582663637972">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="326" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1582477323462" />
+    <state width="1556" height="315" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1582663637972" />
+    <state width="1556" height="315" key="GridCell.Tab.1.bottom" timestamp="1582663637971">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="315" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582663637971" />
+    <state width="1556" height="315" key="GridCell.Tab.1.center" timestamp="1582663637971">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="315" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1582663637971" />
+    <state width="1556" height="315" key="GridCell.Tab.1.left" timestamp="1582663637971">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="315" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1582663637971" />
+    <state width="1556" height="315" key="GridCell.Tab.1.right" timestamp="1582663637971">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="315" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1582663637971" />
+    <state width="1556" height="315" key="GridCell.Tab.2.bottom" timestamp="1582663637972">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="315" key="GridCell.Tab.2.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582663637972" />
+    <state width="1556" height="315" key="GridCell.Tab.2.center" timestamp="1582663637971">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="315" key="GridCell.Tab.2.center/0.0.1600.860@0.0.1600.860" timestamp="1582663637971" />
+    <state width="1556" height="315" key="GridCell.Tab.2.left" timestamp="1582663637971">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="315" key="GridCell.Tab.2.left/0.0.1600.860@0.0.1600.860" timestamp="1582663637971" />
+    <state width="1556" height="315" key="GridCell.Tab.2.right" timestamp="1582663637972">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="315" key="GridCell.Tab.2.right/0.0.1600.860@0.0.1600.860" timestamp="1582663637972" />
     <state x="301" y="60" key="SettingsEditor" timestamp="1582465764052">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="301" y="60" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1582465764052" />
+    <state x="521" y="159" width="540" height="524" key="StructurePopup" timestamp="1582661620794">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="521" y="159" width="540" height="524" key="StructurePopup/0.0.1600.860@0.0.1600.860" timestamp="1582661620794" />
+    <state width="808" height="438" key="XDebugger.FullValuePopup" timestamp="1582661176487">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="808" height="438" key="XDebugger.FullValuePopup/0.0.1600.860@0.0.1600.860" timestamp="1582661176487" />
+    <state x="503" y="43" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1582661259025">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="503" y="43" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1600.860@0.0.1600.860" timestamp="1582661259025" />
     <state x="609" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582456026901">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="609" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1582456026901" />
+    <state x="456" y="190" key="run.anything.popup" timestamp="1582660836684">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="456" y="190" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1582660836684" />
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1582475699395">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -417,158 +235,20 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/router/src/main/java/SocketManager.java</url>
-          <line>51</line>
-          <properties />
-          <option name="timeStamp" value="15" />
+          <line>66</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/router/src/main/java/SocketManager.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateCodeFragment">
-      <expression>
-        <expression-string>String readLine = inBroker.readLine();</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>readLine = inBroker.readLine();</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>String readLine = in.readLine();</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>clientSocket.getLocalPort()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-    </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/market/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/net/Socket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="764" column="15" selection-start-line="764" selection-start-column="15" selection-end-line="764" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/broker/src/main/java/Broker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="8" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/src/main/java/SocketManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="52" column="20" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1761#1762#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/src/main/java/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/market/src/main/java/Market.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>broker</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="Thread.currentThread().getName()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

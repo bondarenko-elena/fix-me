@@ -15,11 +15,6 @@ public class SocketManager extends Thread {
     private Socket socket;
     private static String clientId;
     private int port;
-    private static BufferedReader inBroker;
-    private static BufferedWriter outBroker;
-    private static BufferedReader inMarket;
-    private static BufferedWriter outMarket;
-    private static String readLine = "";
 
     SocketManager( Socket socket ) {
         this.socket = socket;
@@ -28,13 +23,17 @@ public class SocketManager extends Thread {
         try {
             if ( socket.getLocalPort() == 5000 ) {
                 System.out.println( "ROUTER: broker connected" );
-                inBroker = new BufferedReader( new InputStreamReader( socket.getInputStream() ) );
-                outBroker = new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) );
+                SocketSingleton.getInstance()
+                               .setInBroker( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
+                SocketSingleton.getInstance()
+                               .setOutBroker( new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) ) );
             }
             if ( socket.getLocalPort() == 5001 ) {
                 System.out.println( "ROUTER: market connected" );
-                inMarket = new BufferedReader( new InputStreamReader( socket.getInputStream() ) );
-                outMarket = new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) );
+                SocketSingleton.getInstance()
+                               .setInMarket( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
+                SocketSingleton.getInstance()
+                               .setOutMarket( new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) ) );
             }
         } catch ( IOException ex ) {
             Router.printException( ex );
@@ -43,29 +42,31 @@ public class SocketManager extends Thread {
 
     @Override
     public void run() {
-        portThread( socket );
+        portThread(  );
     }
 
-    private static void portThread( Socket clientSocket ) {
+    private  void portThread(  ) {
+        String readLine = "";
         try {
-            if ( clientSocket.getLocalPort() == 5000 ) {
+            if ( socket.getLocalPort() == 5000 ) {
 //                System.out.println( "ROUTER: Broker is here" );
                 ////
                 // send clientId to Broker
-                outBroker.write( clientId + "\n" );
-                outBroker.flush();
+                SocketSingleton.getInstance().getOutBroker().write( clientId + "\n" );
+                SocketSingleton.getInstance().getOutBroker().flush();
                 ////
-                readLine = inBroker.readLine();
+                readLine = SocketSingleton.getInstance().getInBroker().readLine();
                 System.out.println( "ROUTER: message accepted from Broker: " + readLine );
-                outMarket.write( createFixMessage( clientId + ";" + clientSocket.getLocalPort() + ";" + readLine ) + "\n" );
-                outMarket.flush();
+                //todo parse readLine
+                SocketSingleton.getInstance().getOutMarket().write( readLine + "\n" );
+                SocketSingleton.getInstance().getOutMarket().flush();
                 System.out.println( "ROUTER: message rerouted to Market: " + readLine );
             }
-            if ( clientSocket.getLocalPort() == 5001 ) {
+            else {
 //                System.out.println( "ROUTER: Market is here" );
-                readLine = inMarket.readLine();
-                outBroker.write( readLine );
-                outBroker.flush();
+                readLine = SocketSingleton.getInstance().getInMarket().readLine();
+                SocketSingleton.getInstance().getOutBroker().write( readLine );
+                SocketSingleton.getInstance().getOutBroker().flush();
                 System.out.println( "ROUTER: message from market rerouted to broker" );
             }
 
