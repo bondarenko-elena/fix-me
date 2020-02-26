@@ -10,8 +10,8 @@ public class Broker {
 
     public static void main( String[] args ) {
 
-        try ( Socket clientSocket = new Socket( "localhost", 5000 ) ) {
-            while ( true ) {
+        while ( true ) {
+            try ( Socket clientSocket = new Socket( "localhost", 5000 ) ) {
                 BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
                 BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
                 BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
@@ -20,7 +20,8 @@ public class Broker {
                 System.out.println( "BROKER: available options: BUY, SELL" );
                 System.out.println( "BROKER chose option:" );
                 String readLine = br.readLine();
-                while ( !( readLine.equalsIgnoreCase( "buy" ) || readLine.equalsIgnoreCase( "sell" ) ) ) {
+                while ( !( readLine.equalsIgnoreCase( "buy" ) || readLine.equalsIgnoreCase(
+                        "sell" ) ) ) {
                     System.out.println( "BROKER: waiting message in console" );
                     System.out.println( "BROKER: available options: BUY, SELL" );
                     readLine = br.readLine();
@@ -35,9 +36,10 @@ public class Broker {
                 //todo parse input if needed
                 System.out.println( "BROKER: accepted message from server: " + readLine );
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
+
+            } catch ( IOException ex ) {
+                printException( ex );
             }
-        } catch ( IOException ex ) {
-            printException( ex );
         }
     }
 

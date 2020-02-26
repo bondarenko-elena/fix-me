@@ -7,20 +7,23 @@ import java.net.ServerSocket;
 public class Router {
     private static final int brokerPort = 5000;
     private static final int marketPort = 5001;
+    private static SocketManager brokerManager;
+    private static SocketManager marketManager;
 
     public static void main( String[] args ) {
         System.out.println( "ROUTER: turned on" );
-        while ( true ) {
-            try ( ServerSocket serverSocket = new ServerSocket( brokerPort ) ) {
-                new SocketManager( serverSocket.accept() ).start();
-            } catch ( IOException ex ) {
-                printException( ex );
+        try (
+                ServerSocket brokerSocket = new ServerSocket( brokerPort );
+                ServerSocket marketSocket = new ServerSocket( marketPort )
+        ) {
+            while ( true ) {
+                brokerManager = new SocketManager( brokerSocket.accept() );
+                marketManager = new SocketManager( marketSocket.accept() );
+                brokerManager.start();
+                marketManager.start();
             }
-            try ( ServerSocket serverSocket = new ServerSocket( marketPort ) ) {
-                new SocketManager( serverSocket.accept() ).start();
-            } catch ( IOException ex ) {
-                printException( ex );
-            }
+        } catch ( IOException ex ) {
+            printException( ex );
         }
     }
 
