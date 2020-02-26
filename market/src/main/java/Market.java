@@ -7,6 +7,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class Market {
 
@@ -14,28 +15,31 @@ public class Market {
 
     public static void main( String[] args ) {
         while ( true ) {
-            try ( Socket clientSocket = new Socket( "localhost", 5001 ) ) {
-                BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
-                BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
+            try (
+                    Socket clientSocket = new Socket( "localhost", 5001 );
+                    BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
+                    BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
+            ) {
                 System.out.println( "MARKET: waiting message from server" );
                 String readLine = in.readLine();
                 System.out.println( "MARKET: message accepted: " + readLine );
-                String clientId = readLine.split( "\\|" )[0].split( "=" )[1];
-                String port = readLine.split( "\\|" )[1].split( "=" )[1];
-                String option = readLine.split( "\\|" )[2].split( "=" )[1];
+                String[] data = Pattern.compile( "\\|*\\w+=" ).split( readLine );
+                String clientId =data[1];
+                String port = data[2];
+                String option = data[3];
                 if ( option.equalsIgnoreCase( "buy" ) ) {
                     readLine = "Rejected";
-                    System.out.println( "MARKET: send message to server: " + readLine );
+                    // todo has same part as line 39
                     out.write( createFixMessage( clientId + ";" + port + ";" + "none;" + "0;" + "0" ) + "\n" );
                     out.flush();
                 }
                 if ( option.equalsIgnoreCase( "sell" ) ) {
                     readLine = "Executed";
                     instruments.put( 1, "Pliers" );
-                    System.out.println( "MARKET: send message to server: " + readLine + "\n" );
                     out.write( createFixMessage( clientId + ";" + port + ";" + "Pliers;" + "1;" + "150" ) + "\n" );
                     out.flush();
                 }
+                System.out.println( "MARKET: send message to server: " + readLine + "\n" );
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
             } catch ( IOException ex ) {
                 printException( ex );
@@ -52,7 +56,7 @@ public class Market {
         } catch ( NoSuchAlgorithmException ex ) {
             printException( ex );
         }
-        if ( ( returnHash.length() < 1 ) ) {
+        if ( returnHash.length() < 1 ) {
             System.out.println( "ROUTER: unable to create check sum" );
         }
         return returnHash;
@@ -60,8 +64,9 @@ public class Market {
 
     private static String createFixMessage( String msgElem ) {
         String[] elem = msgElem.split( ";" );
+        // todo SB
         String fixMsg =
-                "ID=" + elem[0] +
+                        "ID=" + elem[0] +
                         "|PORT=" + elem[1] +
                         "|INSTR=" + elem[2] +
                         "|QUANT=" + elem[3] +
