@@ -52,7 +52,6 @@ public class SocketManager extends Thread {
                 // send clientId to Broker
                 SocketSingleton.getInstance().getOutBroker().write( clientId + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
-                ////
                 readLine = SocketSingleton.getInstance().getInBroker().readLine();
                 System.out.println( "ROUTER: message accepted from Broker: " + readLine );
                 //todo parse readLine

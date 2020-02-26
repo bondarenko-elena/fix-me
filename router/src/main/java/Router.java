@@ -8,7 +8,6 @@ public class Router {
     private static final int brokerPort = 5000;
     private static final int marketPort = 5001;
 
-
     public static void main( String[] args ) {
         System.out.println( "ROUTER: turned on" );
         while ( true ) {
