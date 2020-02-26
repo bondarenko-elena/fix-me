@@ -12,15 +12,15 @@ public class Market {
     private static final Map<Integer, String> instruments = null;
 
     public static void main( String[] args ) {
-            try ( Socket clientSocket = new Socket( "localhost", 5001 ) ) {
-                while ( true ) {
-                    BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
+        try ( Socket clientSocket = new Socket( "localhost", 5001 ) ) {
+            while ( true ) {
+                BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
                 BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
                 System.out.println( "MARKET: waiting message from server" );
                 String readLine = in.readLine();
                 System.out.println( "MARKET: message accepted: " + readLine );
-                String clientId = readLine.split( "\\|" )[0];
-                String port = readLine.split( "\\|" )[1];
+                String clientId = readLine.split( "\\|" )[0].split( "=" )[1];
+                String port = readLine.split( "\\|" )[1].split( "=" )[1];
                 String option = readLine.split( "\\|" )[2].split( "=" )[1];
                 if ( option.equalsIgnoreCase( "buy" ) ) {
                     readLine = "Rejected";
@@ -35,9 +35,11 @@ public class Market {
                     out.write( createFixMessage( clientId + ";" + port + ";" + "Pliers;" + "1;" + "150" ) + "\n" );
                     out.flush();
                 }
-            } } catch ( IOException ex ) {
-                printException( ex );
+                System.out.println( "-------------------ITERATION ENDED-------------------" );
             }
+        } catch ( IOException ex ) {
+            printException( ex );
+        }
 
     }
 

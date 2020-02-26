@@ -42,15 +42,13 @@ public class SocketManager extends Thread {
 
     @Override
     public void run() {
-        portThread(  );
+        portThread();
     }
 
-    private  void portThread(  ) {
-        String readLine = "";
+    private void portThread() {
+        String readLine;
         try {
             if ( socket.getLocalPort() == 5000 ) {
-//                System.out.println( "ROUTER: Broker is here" );
-                ////
                 // send clientId to Broker
                 SocketSingleton.getInstance().getOutBroker().write( clientId + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
@@ -61,15 +59,14 @@ public class SocketManager extends Thread {
                 SocketSingleton.getInstance().getOutMarket().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutMarket().flush();
                 System.out.println( "ROUTER: message rerouted to Market: " + readLine );
-            }
-            else {
-//                System.out.println( "ROUTER: Market is here" );
+            } else {
                 readLine = SocketSingleton.getInstance().getInMarket().readLine();
+                System.out.println("ROUTER: message accepted from market: " + readLine);
                 SocketSingleton.getInstance().getOutBroker().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
                 System.out.println( "ROUTER: message from market rerouted to broker" );
+                System.out.println("-------------------ITERATION ENDED-------------------");
             }
-
         } catch ( IOException ex ) {
             Router.printException( ex );
         }

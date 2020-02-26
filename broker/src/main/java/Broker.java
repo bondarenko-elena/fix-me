@@ -9,8 +9,9 @@ import java.security.NoSuchAlgorithmException;
 public class Broker {
 
     public static void main( String[] args ) {
-        while ( true ) {
-            try ( Socket clientSocket = new Socket( "localhost", 5000 ) ) {
+
+        try ( Socket clientSocket = new Socket( "localhost", 5000 ) ) {
+            while ( true ) {
                 BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
                 BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
                 BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
@@ -32,10 +33,11 @@ public class Broker {
                 System.out.println( "BROKER: waiting for message from server: " );
                 readLine = in.readLine();
                 //todo parse input if needed
-                System.out.println( "BROKER: get message from server: " + readLine );
-            } catch ( IOException ex ) {
-                printException( ex );
+                System.out.println( "BROKER: accepted message from server: " + readLine );
+                System.out.println( "-------------------ITERATION ENDED-------------------" );
             }
+        } catch ( IOException ex ) {
+            printException( ex );
         }
     }
 
