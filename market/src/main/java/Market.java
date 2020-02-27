@@ -20,11 +20,13 @@ public class Market {
                     BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
                     BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
             ) {
+                // wait for clientId from Router
+                String clientId = in.readLine();
                 System.out.println( "MARKET: waiting message from server" );
                 String readLine = in.readLine();
                 System.out.println( "MARKET: message accepted: " + readLine );
                 String[] data = Pattern.compile( "\\|*\\w+=" ).split( readLine );
-                String clientId =data[1];
+//                String clientId =data[1];
                 String port = data[2];
                 String option = data[3];
                 if ( option.equalsIgnoreCase( "buy" ) ) {
