@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f525dbb4-4851-47e3-b664-c14f623423b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/broker/src/main/java/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/main/java/Broker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/broker/target/classes/Broker.class" beforeDir="false" afterPath="$PROJECT_DIR$/broker/target/classes/Broker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/target/classes/SocketManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/router/target/classes/SocketManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +20,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router/src/main/java/Router.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="323">
               <caret line="27" column="26" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -30,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/src/main/java/SocketManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+            <state relative-caret-position="325">
+              <caret line="101" column="51" selection-end-line="144" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2151#2152#0" expanded="true" />
@@ -44,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/broker/src/main/java/Broker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="20" column="48" lean-forward="true" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+            <state relative-caret-position="175">
+              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -53,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/market/src/main/java/Market.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+            <state relative-caret-position="308">
+              <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="47" selection-end-column="22" />
               <folding>
                 <element signature="method#printException#0;class#Market#0" />
               </folding>
@@ -268,12 +270,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329429" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329429" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39970717" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.329429" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.329429" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.329429" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067115" side_tool="true" weight="0.329429" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.329429" />
@@ -420,36 +422,62 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>String[] strSplitted = routingTable.toString().split( &quot;,&quot; );
-System.out.println(&quot;Routing table:&quot;);
-for ( int i = 0; i &lt; strSplitted.length; i++ ) {
-    System.out.println(strSplitted.toString());    
-}</expression-string>
+        <expression-string>validateCheckSum( readLine )</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>routingTable.toString().split( &quot;,&quot; )</expression-string>
+        <expression-string>Pattern.compile( &quot;^&amp;&amp;(?!([CHECKSUM]))&quot; ).split(  )</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>routingTable.toString()</expression-string>
+        <expression-string>Pattern.compile( &quot;^&amp;&amp;(?!([CHECKSUM]))&quot; )</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>System.out.printf( &quot;Routing table: %s\n%s&quot; + routingTable.toString().split( &quot;,&quot; ) );</expression-string>
+        <expression-string>Pattern.compile( &quot;^&amp;&amp;(?!([CHECKSUM]))&quot; ).split( msg );</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>System.out.print( &quot;Routing table: %s\n%s&quot; + routingTable.toString().split( &quot;,&quot; ) );</expression-string>
+        <expression-string>Pattern.compile( &quot;^&amp;&amp;([CHECKSUM])&quot; ).split( msg );</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Pattern.compile( &quot;.*([CHECKSUM])&quot; ).split( msg );</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Pattern.compile( &quot;^&amp;!([|CHECKSUM])&quot; ).split( msg );</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Pattern.compile( &quot;^&amp;!([CHECKSUM])&quot; ).split( msg );</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Pattern.compile( &quot;^([CHECKSUM])&quot; ).split( msg );</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
     </expressions>
     <expressions id="watch">
+      <expression>
+        <expression-string>msg.substring(0, msg.indexOf(&quot;|CHECKSUM&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>msg</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>strSplitted.length</expression-string>
         <language-id>JAVA</language-id>
@@ -476,8 +504,8 @@ for ( int i = 0; i &lt; strSplitted.length; i++ ) {
     </entry>
     <entry file="file://$PROJECT_DIR$/market/src/main/java/Market.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="46" column="31" lean-forward="true" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
+        <state relative-caret-position="308">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="47" selection-end-column="22" />
           <folding>
             <element signature="method#printException#0;class#Market#0" />
           </folding>
@@ -486,14 +514,14 @@ for ( int i = 0; i &lt; strSplitted.length; i++ ) {
     </entry>
     <entry file="file://$PROJECT_DIR$/broker/src/main/java/Broker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="20" column="48" lean-forward="true" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+        <state relative-caret-position="175">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/src/main/java/Router.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="323">
           <caret line="27" column="26" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -503,8 +531,8 @@ for ( int i = 0; i &lt; strSplitted.length; i++ ) {
     </entry>
     <entry file="file://$PROJECT_DIR$/router/src/main/java/SocketManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+        <state relative-caret-position="325">
+          <caret line="101" column="51" selection-end-line="144" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2151#2152#0" expanded="true" />

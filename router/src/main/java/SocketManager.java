@@ -10,6 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 @Getter
 @Setter
@@ -17,7 +18,7 @@ public class SocketManager extends Thread {
     private Socket socket;
     private static String clientId;
     private int port;
-    private static Map<String, String> routingTable = new HashMap<>();
+    private static Map<String, Socket> routingTable = new HashMap<>();
 
     SocketManager( Socket socket ) {
         this.socket = socket;
@@ -25,7 +26,7 @@ public class SocketManager extends Thread {
                                                                          .substring( 8 );
         try {
             if ( socket.getLocalPort() == 5000 ) {
-                routingTable.put( "clientId=" + clientId + " broker", socket.getLocalSocketAddress().toString() );
+                routingTable.put( clientId, socket );
                 System.out.println( "ROUTER: broker connected" );
                 SocketSingleton.getInstance()
                                .setInBroker( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
@@ -33,7 +34,7 @@ public class SocketManager extends Thread {
                                .setOutBroker( new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) ) );
             }
             if ( socket.getLocalPort() == 5001 ) {
-                routingTable.put( "clientId=" + clientId + " market", socket.getLocalSocketAddress().toString() );
+                routingTable.put( clientId, socket );
                 System.out.println( "ROUTER: market connected" );
                 SocketSingleton.getInstance()
                                .setInMarket( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
@@ -60,6 +61,11 @@ public class SocketManager extends Thread {
                 // wait msg from broker
                 readLine = SocketSingleton.getInstance().getInBroker().readLine();
                 System.out.println( "ROUTER: message accepted from Broker: " + readLine );
+                // validate checkSum
+                if ( validateCheckSum( readLine ) == false ) {
+                    System.out.println( "CheckSum validation is failed" );
+                    System.exit( 0 );
+                }
                 // reroute msg to market
                 //todo parse readLine
                 SocketSingleton.getInstance().getOutMarket().write( readLine + "\n" );
@@ -72,11 +78,16 @@ public class SocketManager extends Thread {
                 // wait msg from market
                 readLine = SocketSingleton.getInstance().getInMarket().readLine();
                 System.out.println( "ROUTER: message accepted from market: " + readLine );
+                // validate checkSum
+                if ( validateCheckSum( readLine ) == false ) {
+                    System.out.println( "CheckSum validation is failed" );
+                    System.exit( 0 );
+                }
                 // reroute msg to broker
                 SocketSingleton.getInstance().getOutBroker().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
                 System.out.println( "ROUTER: message from market rerouted to broker" );
-                String[] strSplitted = routingTable.toString().split( "," );
+                String[] strSplitted = routingTable.toString().split( ", " );
                 System.out.println( "Routing table:" );
                 for ( int i = 0; i < strSplitted.length; i++ ) {
                     System.out.println( strSplitted[i] );
@@ -84,7 +95,15 @@ public class SocketManager extends Thread {
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
             }
         } catch ( IOException ex ) {
-            Router.printException( ex );
+//            Router.printException( ex );
+            if ( socket.getLocalPort() == 5000 ) {
+                System.out.println( "ROUTER: broker is down" );
+            } else {
+                System.out.println( "ROUTER: market is down" );
+            }
+
+            System.exit( 0 );
+
         }
     }
 
@@ -111,5 +130,15 @@ public class SocketManager extends Thread {
                         "|OPTION=" + elem[2];
         fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
         return fixMsg;
+    }
+
+    private static boolean validateCheckSum( String msg ) {
+        String checkSum = Pattern.compile( ".*([CHECKSUM=])" ).split( msg )[1];
+        String msgForValidationCheckSum = msg.substring( 0, msg.indexOf( "|CHECKSUM" ) );
+        msgForValidationCheckSum = createCheckSum( msgForValidationCheckSum );
+        if ( !checkSum.equalsIgnoreCase( msgForValidationCheckSum ) ) {
+            return false;
+        }
+        return true;
     }
 }

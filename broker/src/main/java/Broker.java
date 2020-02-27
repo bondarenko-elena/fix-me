@@ -47,7 +47,7 @@ public class Broker {
                 }
 //                printException( ex );
                 //todo server is down
-                System.out.println("MARKET: server is down");
+                System.out.println("BROKER: server is down");
                 break;
             }
         }
