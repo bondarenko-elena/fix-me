@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f525dbb4-4851-47e3-b664-c14f623423b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/broker/src/main/java/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/main/java/Broker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/target/classes/Broker.class" beforeDir="false" afterPath="$PROJECT_DIR$/broker/target/classes/Broker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market/src/main/java/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/market/src/main/java/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market/target/classes/Market.class" beforeDir="false" afterPath="$PROJECT_DIR$/market/target/classes/Market.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/src/main/java/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/router/src/main/java/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/target/classes/Router.class" beforeDir="false" afterPath="$PROJECT_DIR$/router/target/classes/Router.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/target/classes/SocketManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/router/target/classes/SocketManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/router/src/main/java/SocketManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="77" column="54" lean-forward="true" selection-start-line="77" selection-start-column="54" selection-end-line="77" selection-end-column="54" />
+            <state relative-caret-position="331">
+              <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2151#2152#0" expanded="true" />
@@ -47,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/broker/src/main/java/Broker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+            <state relative-caret-position="85">
+              <caret line="20" column="48" lean-forward="true" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -79,8 +73,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>waiting</find>
       <find>ROUTER: message from market rerouted to broker</find>
+      <find>waiting</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -93,8 +87,8 @@
       <list>
         <option value="$PROJECT_DIR$/router/src/main/java/Router.java" />
         <option value="$PROJECT_DIR$/market/src/main/java/Market.java" />
-        <option value="$PROJECT_DIR$/router/src/main/java/SocketManager.java" />
         <option value="$PROJECT_DIR$/broker/src/main/java/Broker.java" />
+        <option value="$PROJECT_DIR$/router/src/main/java/SocketManager.java" />
       </list>
     </option>
   </component>
@@ -274,12 +268,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329429" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329429" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39970717" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.329429" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.329429" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.329429" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50067115" side_tool="true" weight="0.329429" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.329429" />
@@ -416,16 +410,6 @@
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1582475699395" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/router/src/main/java/SocketManager.java</url>
-          <line>74</line>
-          <properties />
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="readLine.split( &quot;=.\\|&quot; )" language="JAVA" />
@@ -465,6 +449,18 @@ for ( int i = 0; i &lt; strSplitted.length; i++ ) {
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
     </expressions>
+    <expressions id="watch">
+      <expression>
+        <expression-string>strSplitted.length</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>routingTable.toString().split( &quot;,&quot; )</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/Object.java">
@@ -474,16 +470,6 @@ for ( int i = 0; i &lt; strSplitted.length; i++ ) {
           <folding>
             <element signature="e#10065#10066#0" expanded="true" />
             <element signature="e#10148#10149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router/src/main/java/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -498,22 +484,32 @@ for ( int i = 0; i &lt; strSplitted.length; i++ ) {
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/broker/src/main/java/Broker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="20" column="48" lean-forward="true" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/src/main/java/Router.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/router/src/main/java/SocketManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="77" column="54" lean-forward="true" selection-start-line="77" selection-start-column="54" selection-end-line="77" selection-end-column="54" />
+        <state relative-caret-position="331">
+          <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2151#2152#0" expanded="true" />
             <element signature="e#2179#2180#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/broker/src/main/java/Broker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
         </state>
       </provider>
     </entry>

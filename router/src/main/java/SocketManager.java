@@ -57,8 +57,10 @@ public class SocketManager extends Thread {
                 // send clientId to Broker
                 SocketSingleton.getInstance().getOutBroker().write( clientId + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
+                // wait msg from broker
                 readLine = SocketSingleton.getInstance().getInBroker().readLine();
                 System.out.println( "ROUTER: message accepted from Broker: " + readLine );
+                // reroute msg to market
                 //todo parse readLine
                 SocketSingleton.getInstance().getOutMarket().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutMarket().flush();
@@ -67,8 +69,10 @@ public class SocketManager extends Thread {
                 // send clientId to Market
                 SocketSingleton.getInstance().getOutMarket().write( clientId + "\n" );
                 SocketSingleton.getInstance().getOutMarket().flush();
+                // wait msg from market
                 readLine = SocketSingleton.getInstance().getInMarket().readLine();
                 System.out.println( "ROUTER: message accepted from market: " + readLine );
+                // reroute msg to broker
                 SocketSingleton.getInstance().getOutBroker().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
                 System.out.println( "ROUTER: message from market rerouted to broker" );
