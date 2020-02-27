@@ -18,7 +18,7 @@ public class Market {
             try (
                     Socket clientSocket = new Socket( "localhost", 5001 );
                     BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
-                    BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
+                    BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) )
             ) {
                 // wait for clientId from Router
                 String clientId = in.readLine();
@@ -26,7 +26,6 @@ public class Market {
                 String readLine = in.readLine();
                 System.out.println( "MARKET: message accepted: " + readLine );
                 String[] data = Pattern.compile( "\\|*\\w+=" ).split( readLine );
-//                String clientId =data[1];
                 String port = data[2];
                 String option = data[3];
                 if ( option.equalsIgnoreCase( "buy" ) ) {
@@ -41,10 +40,12 @@ public class Market {
                     out.write( createFixMessage( clientId + ";" + port + ";" + "Pliers;" + "1;" + "150" ) + "\n" );
                     out.flush();
                 }
-                System.out.println( "MARKET: send message to server: " + readLine + "\n" );
+                System.out.println( "MARKET: send message to server: " + readLine );
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
             } catch ( IOException ex ) {
-                printException( ex );
+//                printException( ex );
+                System.out.println("MARKET: server is down");
+                break;
             }
         }
     }

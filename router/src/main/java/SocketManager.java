@@ -17,7 +17,7 @@ public class SocketManager extends Thread {
     private Socket socket;
     private static String clientId;
     private int port;
-    private static Map<String, String> routingTable = new HashMap<>(  );
+    private static Map<String, String> routingTable = new HashMap<>();
 
     SocketManager( Socket socket ) {
         this.socket = socket;
@@ -25,7 +25,7 @@ public class SocketManager extends Thread {
                                                                          .substring( 8 );
         try {
             if ( socket.getLocalPort() == 5000 ) {
-                routingTable.put( clientId, "broker" );
+                routingTable.put( "clientId=" + clientId + " broker", socket.getLocalSocketAddress().toString() );
                 System.out.println( "ROUTER: broker connected" );
                 SocketSingleton.getInstance()
                                .setInBroker( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
@@ -33,7 +33,7 @@ public class SocketManager extends Thread {
                                .setOutBroker( new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) ) );
             }
             if ( socket.getLocalPort() == 5001 ) {
-                routingTable.put( clientId, "market" );
+                routingTable.put( "clientId=" + clientId + " market", socket.getLocalSocketAddress().toString() );
                 System.out.println( "ROUTER: market connected" );
                 SocketSingleton.getInstance()
                                .setInMarket( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
@@ -68,12 +68,16 @@ public class SocketManager extends Thread {
                 SocketSingleton.getInstance().getOutMarket().write( clientId + "\n" );
                 SocketSingleton.getInstance().getOutMarket().flush();
                 readLine = SocketSingleton.getInstance().getInMarket().readLine();
-                System.out.println("ROUTER: message accepted from market: " + readLine);
+                System.out.println( "ROUTER: message accepted from market: " + readLine );
                 SocketSingleton.getInstance().getOutBroker().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
                 System.out.println( "ROUTER: message from market rerouted to broker" );
-                System.out.println("Routing table: " + routingTable.toString());
-                System.out.println("-------------------ITERATION ENDED-------------------");
+                String[] strSplitted = routingTable.toString().split( "," );
+                System.out.println( "Routing table:" );
+                for ( int i = 0; i < strSplitted.length; i++ ) {
+                    System.out.println( strSplitted[i] );
+                }
+                System.out.println( "-------------------ITERATION ENDED-------------------" );
             }
         } catch ( IOException ex ) {
             Router.printException( ex );
