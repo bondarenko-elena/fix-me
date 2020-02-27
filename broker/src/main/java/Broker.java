@@ -12,10 +12,11 @@ public class Broker {
     public static void main( String[] args ) {
 
         while ( true ) {
-            try ( Socket clientSocket = new Socket( "localhost", 5000 );
-                  BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
-                  BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) )
-                ) {
+            try (
+                    Socket clientSocket = new Socket( "localhost", 5000 );
+                    BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
+                    BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) )
+            ) {
                 br = new BufferedReader( new InputStreamReader( System.in ) );
                 // wait for clientId from Router
                 String clientId = in.readLine();
@@ -42,12 +43,10 @@ public class Broker {
             } catch ( IOException ex ) {
                 try {
                     br.close();
-                } catch (IOException ex2) {
+                } catch ( IOException ex2 ) {
                     printException( ex2 );
                 }
-//                printException( ex );
-                //todo server is down
-                System.out.println("BROKER: server is down");
+                System.out.println( "BROKER: server is down" );
                 break;
             }
         }
@@ -64,6 +63,7 @@ public class Broker {
         }
         if ( ( returnHash.length() < 1 ) ) {
             System.out.println( "ROUTER: unable to create check sum" );
+            System.exit( 0 );
         }
         return returnHash;
     }

@@ -43,8 +43,7 @@ public class Market {
                 System.out.println( "MARKET: send message to server: " + readLine );
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
             } catch ( IOException ex ) {
-//                printException( ex );
-                System.out.println("MARKET: server is down");
+                System.out.println( "MARKET: server is down" );
                 break;
             }
         }
@@ -69,7 +68,7 @@ public class Market {
         String[] elem = msgElem.split( ";" );
         // todo SB
         String fixMsg =
-                        "ID=" + elem[0] +
+                "ID=" + elem[0] +
                         "|PORT=" + elem[1] +
                         "|INSTR=" + elem[2] +
                         "|QUANT=" + elem[3] +

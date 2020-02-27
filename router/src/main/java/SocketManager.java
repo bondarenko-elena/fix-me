@@ -16,7 +16,6 @@ import java.util.regex.Pattern;
 @Setter
 public class SocketManager extends Thread {
     private Socket socket;
-//    private static String clientId;
     private static String clientIdBroker;
     private static String clientIdMarket;
     private int port;
@@ -29,8 +28,6 @@ public class SocketManager extends Thread {
         } else {
             clientIdMarket = "1" + String.valueOf( Instant.now().toEpochMilli() ).substring( 8 );
         }
-//        clientId = ( socket.getLocalPort() == 5000 ? "0" : "1" ) + String.valueOf( Instant.now().toEpochMilli() )
-//                                                                         .substring( 8 );
         try {
             if ( socket.getLocalPort() == 5000 ) {
                 routingTable.put( "BROKER -> " + clientIdBroker, socket );
@@ -100,17 +97,15 @@ public class SocketManager extends Thread {
                     System.out.println( strSplitted[i] );
                 }
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
+                routingTable.clear();
             }
         } catch ( IOException ex ) {
-//            Router.printException( ex );
             if ( socket.getLocalPort() == 5000 ) {
                 System.out.println( "ROUTER: broker is down" );
             } else {
                 System.out.println( "ROUTER: market is down" );
             }
-
             System.exit( 0 );
-
         }
     }
 
@@ -127,16 +122,6 @@ public class SocketManager extends Thread {
             System.out.println( "Router: unable to create check sum" );
         }
         return returnHash;
-    }
-
-    private static String createFixMessage( @NotNull String msgElem ) {
-        String[] elem = msgElem.split( ";" );
-        String fixMsg =
-                "ID=" + elem[0] +
-                        "|PORT=" + elem[1] +
-                        "|OPTION=" + elem[2];
-        fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
-        return fixMsg;
     }
 
     private static boolean validateCheckSum( String msg ) {
