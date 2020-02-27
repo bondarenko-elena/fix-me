@@ -64,11 +64,19 @@ public class Market {
         return returnHash;
     }
 
+//    return fixFormat
+//                + lengthMessage
+//                + typeMessage
+//                + numMessage
+//                + sender
+//                + receiver
+//                + time;
+
     private static String createFixMessage( String msgElem ) {
         String[] elem = msgElem.split( ";" );
         // todo SB
         String fixMsg =
-                "ID=" + elem[0] +
+                "8=FIX.4.2\\1|ID=" + elem[0] +
                         "|PORT=" + elem[1] +
                         "|INSTR=" + elem[2] +
                         "|QUANT=" + elem[3] +

@@ -68,10 +68,18 @@ public class Broker {
         return returnHash;
     }
 
+//    return fixFormat
+//                + lengthMessage
+//                + typeMessage
+//                + numMessage
+//                + sender
+//                + receiver
+//                + time;
+
     private static String createFixMessage( @NotNull String msgElem ) {
         String[] elem = msgElem.split( ";" );
         String fixMsg =
-                "ID=" + elem[0] +
+                "8=FIX.4.2\\1|ID=" + elem[0] +
                         "|PORT=" + elem[1] +
                         "|OPTION=" + elem[2];
         fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );

@@ -66,7 +66,7 @@ public class SocketManager extends Thread {
                 readLine = SocketSingleton.getInstance().getInBroker().readLine();
                 System.out.println( "ROUTER: message accepted from Broker: " + readLine );
                 // validate checkSum
-                if ( validateCheckSum( readLine ) == false ) {
+                if ( !validateCheckSum( readLine ) ) {
                     System.out.println( "CheckSum validation is failed" );
                     System.exit( 0 );
                 }
@@ -83,7 +83,7 @@ public class SocketManager extends Thread {
                 readLine = SocketSingleton.getInstance().getInMarket().readLine();
                 System.out.println( "ROUTER: message accepted from market: " + readLine );
                 // validate checkSum
-                if ( validateCheckSum( readLine ) == false ) {
+                if ( !validateCheckSum( readLine ) ) {
                     System.out.println( "CheckSum validation is failed" );
                     System.exit( 0 );
                 }
@@ -93,8 +93,8 @@ public class SocketManager extends Thread {
                 System.out.println( "ROUTER: message from market rerouted to broker" );
                 String[] strSplitted = routingTable.toString().split( ", " );
                 System.out.println( "Routing table:" );
-                for ( int i = 0; i < strSplitted.length; i++ ) {
-                    System.out.println( strSplitted[i] );
+                for ( String s : strSplitted ) {
+                    System.out.println( s );
                 }
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
                 routingTable.clear();
@@ -128,9 +128,6 @@ public class SocketManager extends Thread {
         String checkSum = Pattern.compile( ".*([CHECKSUM=])" ).split( msg )[1];
         String msgForValidationCheckSum = msg.substring( 0, msg.indexOf( "|CHECKSUM" ) );
         msgForValidationCheckSum = createCheckSum( msgForValidationCheckSum );
-        if ( !checkSum.equalsIgnoreCase( msgForValidationCheckSum ) ) {
-            return false;
-        }
-        return true;
+        return checkSum.equalsIgnoreCase( msgForValidationCheckSum );
     }
 }
