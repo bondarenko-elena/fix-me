@@ -16,17 +16,24 @@ import java.util.regex.Pattern;
 @Setter
 public class SocketManager extends Thread {
     private Socket socket;
-    private static String clientId;
+//    private static String clientId;
+    private static String clientIdBroker;
+    private static String clientIdMarket;
     private int port;
     private static Map<String, Socket> routingTable = new HashMap<>();
 
     SocketManager( Socket socket ) {
         this.socket = socket;
-        clientId = ( socket.getLocalPort() == 5000 ? "0" : "1" ) + String.valueOf( Instant.now().toEpochMilli() )
-                                                                         .substring( 8 );
+        if ( socket.getLocalPort() == 5000 ) {
+            clientIdBroker = "0" + String.valueOf( Instant.now().toEpochMilli() ).substring( 8 );
+        } else {
+            clientIdMarket = "1" + String.valueOf( Instant.now().toEpochMilli() ).substring( 8 );
+        }
+//        clientId = ( socket.getLocalPort() == 5000 ? "0" : "1" ) + String.valueOf( Instant.now().toEpochMilli() )
+//                                                                         .substring( 8 );
         try {
             if ( socket.getLocalPort() == 5000 ) {
-                routingTable.put( clientId, socket );
+                routingTable.put( "BROKER -> " + clientIdBroker, socket );
                 System.out.println( "ROUTER: broker connected" );
                 SocketSingleton.getInstance()
                                .setInBroker( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
@@ -34,7 +41,7 @@ public class SocketManager extends Thread {
                                .setOutBroker( new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) ) );
             }
             if ( socket.getLocalPort() == 5001 ) {
-                routingTable.put( clientId, socket );
+                routingTable.put( "MARKET -> " + clientIdMarket, socket );
                 System.out.println( "ROUTER: market connected" );
                 SocketSingleton.getInstance()
                                .setInMarket( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
@@ -56,7 +63,7 @@ public class SocketManager extends Thread {
         try {
             if ( socket.getLocalPort() == 5000 ) {
                 // send clientId to Broker
-                SocketSingleton.getInstance().getOutBroker().write( clientId + "\n" );
+                SocketSingleton.getInstance().getOutBroker().write( clientIdBroker + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
                 // wait msg from broker
                 readLine = SocketSingleton.getInstance().getInBroker().readLine();
@@ -73,7 +80,7 @@ public class SocketManager extends Thread {
                 System.out.println( "ROUTER: message rerouted to Market: " + readLine );
             } else {
                 // send clientId to Market
-                SocketSingleton.getInstance().getOutMarket().write( clientId + "\n" );
+                SocketSingleton.getInstance().getOutMarket().write( clientIdMarket + "\n" );
                 SocketSingleton.getInstance().getOutMarket().flush();
                 // wait msg from market
                 readLine = SocketSingleton.getInstance().getInMarket().readLine();
