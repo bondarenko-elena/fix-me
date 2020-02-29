@@ -7,14 +7,17 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Broker {
+    private static BufferedReader br;
 
     public static void main( String[] args ) {
 
         while ( true ) {
-            try ( Socket clientSocket = new Socket( "localhost", 5000 ) ) {
-                BufferedReader br = new BufferedReader( new InputStreamReader( System.in ) );
-                BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
-                BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) );
+            try (
+                    Socket clientSocket = new Socket( "localhost", 5000 );
+                    BufferedReader in = new BufferedReader( new InputStreamReader( clientSocket.getInputStream() ) );
+                    BufferedWriter out = new BufferedWriter( new OutputStreamWriter( clientSocket.getOutputStream() ) )
+            ) {
+                br = new BufferedReader( new InputStreamReader( System.in ) );
                 // wait for clientId from Router
                 String clientId = in.readLine();
                 System.out.println( "BROKER: available options: BUY, SELL" );
@@ -35,9 +38,14 @@ public class Broker {
                 readLine = in.readLine();
                 System.out.println( "BROKER: accepted message from server: " + readLine );
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
-
             } catch ( IOException ex ) {
-                printException( ex );
+                try {
+                    br.close();
+                } catch ( IOException ex2 ) {
+                    printException( ex2 );
+                }
+                System.out.println( "BROKER: server is down" );
+                break;
             }
         }
     }
