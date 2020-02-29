@@ -24,7 +24,7 @@ public class Market {
                 String readLine = in.readLine();
                 System.out.println( "MARKET: message accepted: " + readLine );
                 String[] data = Pattern.compile( "\\|*\\w+=" ).split( readLine );
-                String clientId =data[1];
+                String clientId = data[1];
                 String port = data[2];
                 String option = data[3];
                 if ( option.equalsIgnoreCase( "buy" ) ) {
@@ -39,7 +39,7 @@ public class Market {
                     out.write( createFixMessage( clientId + ";" + port + ";" + "Pliers;" + "1;" + "150" ) + "\n" );
                     out.flush();
                 }
-                System.out.println( "MARKET: send message to server: " + readLine + "\n" );
+                System.out.println( "MARKET: send message to server: " + readLine );
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
             } catch ( IOException ex ) {
                 printException( ex );
@@ -65,12 +65,11 @@ public class Market {
     private static String createFixMessage( String msgElem ) {
         String[] elem = msgElem.split( ";" );
         // todo SB
-        String fixMsg =
-                        "ID=" + elem[0] +
-                        "|PORT=" + elem[1] +
-                        "|INSTR=" + elem[2] +
-                        "|QUANT=" + elem[3] +
-                        "|PRICE=" + elem[4] + "|";
+        String fixMsg = "ID=" + elem[0] +
+                "|PORT=" + elem[1] +
+                "|INSTR=" + elem[2] +
+                "|QUANT=" + elem[3] +
+                "|PRICE=" + elem[4] + "|";
         fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
         return fixMsg;
     }

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f525dbb4-4851-47e3-b664-c14f623423b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market/src/main/java/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/market/src/main/java/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market/target/classes/Market.class" beforeDir="false" afterPath="$PROJECT_DIR$/market/target/classes/Market.class" afterDir="false" />
-    </list>
+    <list default="true" id="f525dbb4-4851-47e3-b664-c14f623423b3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,9 +18,14 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -32,11 +33,6 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1040" />
   </component>
   <component name="ProjectId" id="1YCobYxz8rOB4KT6huTrBh0ljZ1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -119,12 +115,31 @@
       <option name="project" value="LOCAL" />
       <updated>1582747699367</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="revert to oleh's working version покращена">
+      <created>1582970004634</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582970004634</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="oleh's working version" />
-    <option name="LAST_COMMIT_MESSAGE" value="oleh's working version" />
+    <MESSAGE value="revert to oleh's working version покращена" />
+    <option name="LAST_COMMIT_MESSAGE" value="revert to oleh's working version покращена" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="87" key="#Project_Structure" timestamp="1582466594512">
@@ -163,22 +178,22 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1556" height="315" key="GridCell.Tab.-1.right/0.0.1600.860@0.0.1600.860" timestamp="1582661999475" />
-    <state width="1556" height="364" key="GridCell.Tab.0.bottom" timestamp="1582748847896">
+    <state width="1556" height="209" key="GridCell.Tab.0.bottom" timestamp="1582970778625">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="364" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582748847896" />
-    <state width="1556" height="364" key="GridCell.Tab.0.center" timestamp="1582748847896">
+    <state width="1556" height="209" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582970778625" />
+    <state width="1556" height="209" key="GridCell.Tab.0.center" timestamp="1582970778625">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="364" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1582748847896" />
-    <state width="1556" height="364" key="GridCell.Tab.0.left" timestamp="1582748847895">
+    <state width="1556" height="209" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1582970778625" />
+    <state width="1556" height="209" key="GridCell.Tab.0.left" timestamp="1582970778624">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="364" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1582748847895" />
-    <state width="1556" height="364" key="GridCell.Tab.0.right" timestamp="1582748847896">
+    <state width="1556" height="209" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1582970778624" />
+    <state width="1556" height="209" key="GridCell.Tab.0.right" timestamp="1582970778625">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="364" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1582748847896" />
+    <state width="1556" height="209" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1582970778625" />
     <state width="1556" height="364" key="GridCell.Tab.1.bottom" timestamp="1582748847895">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -219,10 +234,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="521" y="159" width="540" height="524" key="StructurePopup/0.0.1600.860@0.0.1600.860" timestamp="1582661620794" />
-    <state x="392" y="161" key="Vcs.Push.Dialog.v2" timestamp="1582747701627">
+    <state x="392" y="161" key="Vcs.Push.Dialog.v2" timestamp="1582970857531">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="161" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1582747701627" />
+    <state x="392" y="161" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1582970857531" />
     <state width="808" height="438" key="XDebugger.FullValuePopup" timestamp="1582748461489">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -249,7 +264,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/market/src/main/java/Market.java</url>
-          <line>26</line>
+          <line>27</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
