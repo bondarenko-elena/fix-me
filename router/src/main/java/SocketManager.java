@@ -3,11 +3,10 @@ import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
 import javax.xml.bind.DatatypeConverter;
-import java.io.*;
+import java.io.IOException;
 import java.net.Socket;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.time.Instant;
 
 @Getter
 @Setter
@@ -18,22 +17,18 @@ public class SocketManager extends Thread {
 
     SocketManager( Socket socket ) {
         this.socket = socket;
-        clientId = ( socket.getLocalPort() == 5000 ? "0" : "1" ) + String.valueOf( Instant.now().toEpochMilli() )
-                                                                         .substring( 8 );
+        clientId = ( socket.getLocalPort() == 5000 ? "0" : "1" )
+                + String.valueOf( System.currentTimeMillis() ).substring( 8 );
         try {
             if ( socket.getLocalPort() == 5000 ) {
                 System.out.println( "ROUTER: broker connected" );
-                SocketSingleton.getInstance()
-                               .setInBroker( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
-                SocketSingleton.getInstance()
-                               .setOutBroker( new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) ) );
+                SocketSingleton.getInstance().setInBroker( socket );
+                SocketSingleton.getInstance().setOutBroker( socket );
             }
             if ( socket.getLocalPort() == 5001 ) {
                 System.out.println( "ROUTER: market connected" );
-                SocketSingleton.getInstance()
-                               .setInMarket( new BufferedReader( new InputStreamReader( socket.getInputStream() ) ) );
-                SocketSingleton.getInstance()
-                               .setOutMarket( new BufferedWriter( new OutputStreamWriter( socket.getOutputStream() ) ) );
+                SocketSingleton.getInstance().setInMarket( socket );
+                SocketSingleton.getInstance().setOutMarket( socket );
             }
         } catch ( IOException ex ) {
             Router.printException( ex );
@@ -54,7 +49,6 @@ public class SocketManager extends Thread {
                 SocketSingleton.getInstance().getOutBroker().flush();
                 readLine = SocketSingleton.getInstance().getInBroker().readLine();
                 System.out.println( "ROUTER: message accepted from Broker: " + readLine );
-                //todo parse readLine
                 SocketSingleton.getInstance().getOutMarket().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutMarket().flush();
                 System.out.println( "ROUTER: message rerouted to Market: " + readLine );

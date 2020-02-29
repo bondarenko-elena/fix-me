@@ -33,7 +33,6 @@ public class Broker {
                 out.flush();
                 System.out.println( "BROKER: waiting for message from server: " );
                 readLine = in.readLine();
-                //todo parse input if needed
                 System.out.println( "BROKER: accepted message from server: " + readLine );
                 System.out.println( "-------------------ITERATION ENDED-------------------" );
 
@@ -60,10 +59,9 @@ public class Broker {
 
     private static String createFixMessage( @NotNull String msgElem ) {
         String[] elem = msgElem.split( ";" );
-        String fixMsg =
-                "ID=" + elem[0] +
-                        "|PORT=" + elem[1] +
-                        "|OPTION=" + elem[2];
+        String fixMsg = "ID=" + elem[0] +
+                "|PORT=" + elem[1] +
+                "|OPTION=" + elem[2];
         fixMsg += "|CHECKSUM=" + createCheckSum( fixMsg );
         return fixMsg;
     }
