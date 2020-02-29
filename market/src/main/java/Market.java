@@ -29,7 +29,6 @@ public class Market {
                 String option = data[3];
                 if ( option.equalsIgnoreCase( "buy" ) ) {
                     readLine = "Rejected";
-                    // todo has same part as line 39
                     out.write( createFixMessage( clientId + ";" + port + ";" + "none;" + "0;" + "0" ) + "\n" );
                     out.flush();
                 }
@@ -65,7 +64,6 @@ public class Market {
 
     private static String createFixMessage( String msgElem ) {
         String[] elem = msgElem.split( ";" );
-        // todo SB
         String fixMsg = "ID=" + elem[0] +
                 "|PORT=" + elem[1] +
                 "|INSTR=" + elem[2] +

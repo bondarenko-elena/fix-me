@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f525dbb4-4851-47e3-b664-c14f623423b3" name="Default Changelist" comment="oleh's working version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/src/main/java/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/broker/src/main/java/Broker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker/target/classes/Broker.class" beforeDir="false" afterPath="$PROJECT_DIR$/broker/target/classes/Broker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market/src/main/java/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/market/src/main/java/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market/target/classes/Market.class" beforeDir="false" afterPath="$PROJECT_DIR$/market/target/classes/Market.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/router/src/main/java/SocketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/target/classes/SocketManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/router/target/classes/SocketManager.class" afterDir="false" />
     </list>
     <list id="67ad2635-8318-439b-ad3f-b3fec7a034b2" name="Apply: " comment="" />
     <list id="6b2a81f0-b75b-4b64-9594-c163c0e739b7" name="Revert: " comment="" />
@@ -181,10 +177,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="454" y="23" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1582970907105" />
-    <state x="73" y="79" width="1416" height="676" key="DiffContextDialog" timestamp="1582974525846">
+    <state x="73" y="79" width="1416" height="676" key="DiffContextDialog" timestamp="1582974808903">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="73" y="79" width="1416" height="676" key="DiffContextDialog/0.0.1600.860@0.0.1600.860" timestamp="1582974525846" />
+    <state x="73" y="79" width="1416" height="676" key="DiffContextDialog/0.0.1600.860@0.0.1600.860" timestamp="1582974808903" />
     <state x="580" y="183" key="FileChooserDialogImpl" timestamp="1582458709812">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -205,22 +201,22 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1556" height="315" key="GridCell.Tab.-1.right/0.0.1600.860@0.0.1600.860" timestamp="1582661999475" />
-    <state width="1556" height="209" key="GridCell.Tab.0.bottom" timestamp="1582974558065">
+    <state width="1556" height="209" key="GridCell.Tab.0.bottom" timestamp="1582974893866">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="209" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582974558065" />
-    <state width="1556" height="209" key="GridCell.Tab.0.center" timestamp="1582974558064">
+    <state width="1556" height="209" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1582974893866" />
+    <state width="1556" height="209" key="GridCell.Tab.0.center" timestamp="1582974893866">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="209" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1582974558064" />
-    <state width="1556" height="209" key="GridCell.Tab.0.left" timestamp="1582974558064">
+    <state width="1556" height="209" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1582974893866" />
+    <state width="1556" height="209" key="GridCell.Tab.0.left" timestamp="1582974893866">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="209" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1582974558064" />
-    <state width="1556" height="209" key="GridCell.Tab.0.right" timestamp="1582974558064">
+    <state width="1556" height="209" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1582974893866" />
+    <state width="1556" height="209" key="GridCell.Tab.0.right" timestamp="1582974893866">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1556" height="209" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1582974558064" />
+    <state width="1556" height="209" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1582974893866" />
     <state width="1556" height="259" key="GridCell.Tab.1.bottom" timestamp="1582973543612">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -300,7 +296,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/market/src/main/java/Market.java</url>
-          <line>66</line>
+          <line>65</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -310,7 +306,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/router/src/main/java/SocketManager.java</url>
-          <line>25</line>
+          <line>26</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>

@@ -9,6 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 @Getter
 @Setter
@@ -53,15 +54,23 @@ public class SocketManager extends Thread {
                 SocketSingleton.getInstance().getOutBroker().write( clientId + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
                 readLine = SocketSingleton.getInstance().getInBroker().readLine();
-                System.out.println( "ROUTER: message accepted from Broker: " + readLine );
+                System.out.println( "ROUTER: message accepted from broker: " + readLine );
+                if (!validateCheckSum(readLine)) {
+                    System.out.println("CheckSum validation is failed");
+                    System.exit(0);
+                }
                 SocketSingleton.getInstance().getOutMarket().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutMarket().flush();
-                System.out.println( "ROUTER: message rerouted to Market: " + readLine );
+                System.out.println( "ROUTER: message rerouted to market: " + readLine );
             } else {
                 SocketSingleton.getInstance().getOutMarket().write( clientId + "\n" );
                 SocketSingleton.getInstance().getOutMarket().flush();
                 readLine = SocketSingleton.getInstance().getInMarket().readLine();
                 System.out.println("ROUTER: message accepted from market: " + readLine);
+                if (!validateCheckSum(readLine)) {
+                    System.out.println("CheckSum validation is failed");
+                    System.exit(0);
+                }
                 SocketSingleton.getInstance().getOutBroker().write( readLine + "\n" );
                 SocketSingleton.getInstance().getOutBroker().flush();
                 System.out.println( "ROUTER: message from market rerouted to broker" );
@@ -91,6 +100,13 @@ public class SocketManager extends Thread {
             System.out.println( "Router: unable to create check sum" );
         }
         return returnHash;
+    }
+
+    private static boolean validateCheckSum(String msg) {
+        String checkSum = Pattern.compile( ".*([CHECKSUM=])").split( msg)[1];
+        String msgForValidationCheckSum = msg.substring(0, msg.indexOf("|CHECKSUM"));
+        msgForValidationCheckSum = createCheckSum(msgForValidationCheckSum);
+        return checkSum.equalsIgnoreCase(msgForValidationCheckSum);
     }
 
     private static String createFixMessage( @NotNull String msgElem ) {
